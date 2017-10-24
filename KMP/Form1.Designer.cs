@@ -124,6 +124,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "Form1";
             this.Text = "KMP";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -33,36 +33,30 @@ namespace KMP
         string pattern, text;
         //int result = FindSubstring(pattern, text);
 
-        private void getT(string x, int[] t)
-        { //функция, вычисляющая массив t для строки x
+        static int[] GetPrefix(string s)
+        {
+            int[] result = new int[s.Length];
+            result[0] = 0;
+            int index = 0;
 
-            int i = 0;
-            int j = -1;
-            t[0] = j;
-            while (i < x.Length-1)
+            for (int i = 1; i < s.Length; i++)
             {
-                while ((j > -1) && (x[i] != x[j]))
-                {
-                    j = t[j];
-                }
-            i++;
-            j++;
-            if (x[i] == x[j])
-            {
-                t[i] = t[j];
+                while (index >= 0 && s[index] != s[i]) { index--; }
+                index++;
+                result[i] = index;
             }
-            else t[i] = j;
-            }
+
+            return result;
         }
 
         public int AG(string xx, string y)
         { //x — образец, y — текст
             int l = new int();
-            int[] t = new int[xx.Length];
+            int[] t;
             int v = new int();
 
             //этап предпосчета
-            getT(xx, t);
+            t = GetPrefix(xx);
             //вычисление значения l 
             for (l = 1; xx[l - 1] == xx[l]; l++)
             {
@@ -118,6 +112,11 @@ namespace KMP
         }
 
         private void output_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
