@@ -52,11 +52,9 @@ namespace KMP
         public int AG(string xx, string y)
         { //x — образец, y — текст
             int l = new int();
-            int[] t;
+            int[] t = GetPrefix(xx); //этап предпосчета
             int v = new int();
 
-            //этап предпосчета
-            t = GetPrefix(xx);
             //вычисление значения l 
             for (l = 1; xx[l - 1] == xx[l]; l++)
             {
